@@ -1,0 +1,200 @@
+<mvc:View controllerName="SmartTable.SmartControl.controller.Master" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:core="sap.ui.core" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:table="sap.ui.table" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:mc="sap.ui.comp.smartmicrochart" xmlns:smartList="sap.ui.comp.smartlist"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<App>
+		<pages>
+			<Page title="My First SmartControl App">
+				<content>
+					<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="ProductSet">
+						<smartFilterBar:controlConfiguration>
+							<smartFilterBar:ControlConfiguration id="ProductID" key="ProductID" index="1" visibleInAdvancedArea="true"></smartFilterBar:ControlConfiguration>
+						</smartFilterBar:controlConfiguration>
+						<smartFilterBar:controlConfiguration>
+							<smartFilterBar:ControlConfiguration filterType="single" index="0" key="Category" visibleInAdvancedArea="true"></smartFilterBar:ControlConfiguration>
+						</smartFilterBar:controlConfiguration>
+					</smartFilterBar:SmartFilterBar>
+					<smartTable:SmartTable id="smartTable_ResponsiveTable" smartFilterId="smartFilterBar" tableType="ResponsiveTable" editable="false"
+						entitySet="ProductSet" useVariantManagement="true" useTablePersonalisation="true" header="Products" showRowCount="true"
+						useExportToExcel="false" class="sapUiResponsiveContentPadding " enableAutoBinding="true"
+						initiallyVisibleFields="ProductID,Category,Name,SupplierName,WeightMeasure">
+						<smartTable:customToolbar>
+							<OverflowToolbar design="Transparent">
+								<ToolbarSpacer/>
+								<OverflowToolbarButton icon="sap-icon://arrow-right" tooltip="SmartForm Navigation" press=".onTollbarPress"/>
+							</OverflowToolbar>
+						</smartTable:customToolbar>
+						<Table id = "Table">
+							<columns>
+								<Column width="100px" hAlign="Begin">
+									<Text></Text>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem  type="Navigation" press=".onSmartFormPress">
+									<cells>
+										<Text></Text>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</smartTable:SmartTable>
+					<!--	<smartFilterBar:SmartFilterBar id="smartFilterBar" persistencyKey="UniqueAndStablePersistencyKey" considerSelectionVariants="true"
+						entitySet="ProductSet" showRestoreButton="false" showMessages="false" showClearButton="true" filterBarExpanded="true" showClearOnFB="true"
+						search="onSearch" clear="onClear">
+						<smartFilterBar:controlConfiguration>
+							<smartFilterBar:ControlConfiguration id="ProductID" key="ProductID" index="1" visibleInAdvancedArea="true"></smartFilterBar:ControlConfiguration>
+						</smartFilterBar:controlConfiguration>
+						<smartFilterBar:controlConfiguration>
+							<smartFilterBar:ControlConfiguration filterType="single" index="0" key="Category" visibleInAdvancedArea="true"></smartFilterBar:ControlConfiguration>
+						</smartFilterBar:controlConfiguration>
+						<smartFilterBar:controlConfiguration>
+							<smartFilterBar:ControlConfiguration conditionType="sap.ui.comp.config.condition.DateRangeType" controlType="date" index="2" key="CreatedAt"
+								visibleInAdvancedArea="true"></smartFilterBar:ControlConfiguration>
+						</smartFilterBar:controlConfiguration>
+						<smartFilterBar:controlConfiguration>
+							<smartFilterBar:ControlConfiguration id="input1" key="input1" index="0" visibleInAdvancedArea="true"
+								preventInitialDataFetchInValueHelpDialog="false" label="CustomerID" groupId="_BASIC" >
+								<smartFilterBar:customControl>
+									<Input id="CustomerID"></Input>
+								</smartFilterBar:customControl>
+							</smartFilterBar:ControlConfiguration>
+						</smartFilterBar:controlConfiguration>
+						<smartFilterBar:controlConfiguration>
+							<smartFilterBar:ControlConfiguration id="input2" filterType="multiple" key="input2" index="1" visibleInAdvancedArea="true"-->
+					<!--preventInitialDataFetchInValueHelpDialog="false" label="CustomerName" groupId="_BASIC">-->
+					<!--		<smartFilterBar:customControl>-->
+					<!--			<Input id="CustomerName" showValueHelp="true"></Input>-->
+					<!--		</smartFilterBar:customControl>-->
+					<!--	</smartFilterBar:ControlConfiguration>-->
+					<!--</smartFilterBar:controlConfiguration>-->
+					<!--<smartFilterBar:controlConfiguration>-->
+					<!--	<smartFilterBar:ControlConfiguration id="DatePicker1" key="DatePicker1" index="4" visibleInAdvancedArea="true"-->
+					<!--		preventInitialDataFetchInValueHelpDialog="false" label="From" groupId="_BASIC">-->
+					<!--		<smartFilterBar:customControl>-->
+					<!--			<DateRangeSelection id="date1"/>-->
+					<!--		</smartFilterBar:customControl>-->
+					<!--	</smartFilterBar:ControlConfiguration>-->
+					<!--</smartFilterBar:controlConfiguration>-->
+					<!--<smartFilterBar:controlConfiguration>-->
+					<!--	<smartFilterBar:ControlConfiguration index="2" controlType="dropDownList" groupId="_BASIC" label="CurrencyCode" key="myOwn"-->
+					<!--		visibleInAdvancedArea="true">-->
+					<!--		<smartFilterBar:customControl templateShareable="true">-->
+					<!--			<Select id="foo" customData:hasValue="true" items="{path : 'jsonModel>/FixedValues', templateShareable: true}">-->
+					<!--				<core:Item key="{jsonModel>key}" text="{jsonModel>value}"/>-->
+					<!--			</Select>-->
+					<!--		</smartFilterBar:customControl>-->
+					<!--<smartFilterBar:customControl>-->
+					<!--	<Select id="foo">-->
+					<!--		<core:Item key="1" text="USD"/>-->
+					<!--		<core:Item key="2" text="INR"/>-->
+					<!--	</Select>-->
+					<!--</smartFilterBar:customControl>-->
+					<!--	</smartFilterBar:ControlConfiguration>-->
+					<!--</smartFilterBar:controlConfiguration>-->
+					<!--<smartFilterBar:controlConfiguration>-->
+					<!--	<smartFilterBar:ControlConfiguration index="5" groupId="_BASIC" label="DateTime" key="dateTime" visibleInAdvancedArea="true">-->
+					<!--		<smartFilterBar:customControl >-->
+					<!--			<DateTimePicker valueFormat="yyyyMMddHHmmss" name="CreationTime_From" displayFormat="yyyy-MM-dd HH:mm"></DateTimePicker>-->
+					<!--		</smartFilterBar:customControl>-->
+					<!--	</smartFilterBar:ControlConfiguration>-->
+					<!--</smartFilterBar:controlConfiguration>-->
+					<!--<smartFilterBar:controlConfiguration>-->
+					<!--	<smartFilterBar:ControlConfiguration index="6" groupId="_BASIC" label="ComboBox" key="ComboBox" visibleInAdvancedArea="true">-->
+					<!--		<smartFilterBar:customControl >-->
+					<!--<ComboBox id="ComboBox" showSecondaryValues="true" selectedKey="{jsonModel>key}"-->
+					<!--	items="{path : 'jsonModel>/FixedValues', templateShareable: true}">-->
+					<!--	<core:ListItem key="{jsonModel>key}" text="{jsonModel>value}" additionalText="{jsonModel>key}"/>-->
+					<!--</ComboBox>-->
+					<!--			<ComboBox id="ComboBox" showSecondaryValues="true" -->
+					<!--				items="{path : 'jsonModel>/FixedValues', templateShareable: true}">-->
+					<!--				<core:ListItem key="{jsonModel>key}" text="{jsonModel>value}" additionalText="{jsonModel>key}"/>-->
+					<!--<core:ListItem key="1" text="USD"/>-->
+					<!--<core:ListItem key="2" text="INR"/>-->
+					<!--			</ComboBox>-->
+					<!--		</smartFilterBar:customControl>-->
+					<!--	</smartFilterBar:ControlConfiguration>-->
+					<!--</smartFilterBar:controlConfiguration>-->
+					<!--</smartFilterBar:SmartFilterBar> -->
+					<!--	<smartTable:SmartTable entitySet="ProductSet" id="smartFilterTable" smartFilterId="smartFilterBar" tableType="ResponsiveTable"
+						useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true"
+						initiallyVisibleFields="ProductID,Category,Name,SupplierName,WeightMeasure" useTablePersonalisation="true" showTablePersonalisation="false"
+						header="Products" showRowCount="true" enableAutoBinding="true" demandPopin="true"
+						class="sapUiResponsiveContentPadding sapUiSmallMarginTopBottom sapUiSmallMarginBeginEnd" editTogglable="true">-->
+					<!--<Table id="peopleList" growing="true" growingThreshold="10" items="{ path: '/ProductSet',parameters: { $count: true } }">-->
+					<!--	<columns>-->
+					<!--		<Column id="productID">-->
+					<!--			<Text id="txtPrdId" text="ProductID"/>-->
+					<!--		</Column>-->
+					<!--		<Column id="Category">-->
+					<!--			<Text id="txtCategory" text="Category"/>-->
+					<!--		</Column>-->
+					<!--		<Column id="ProductName">-->
+					<!--			<Text id="txtPrdName" text="Product Name"/>-->
+					<!--		</Column>-->
+					<!--		<Column id="Company">-->
+					<!--			<Text id="txtCompany" text="SupplierName"/>-->
+					<!--		</Column>-->
+					<!--		<Column id="Weight">-->
+					<!--			<Text id="txtWeight" text="Measure"/>-->
+					<!--		</Column>-->
+					<!--	</columns>-->
+					<!--	<items>-->
+					<!--		<ColumnListItem id="Columnlist">-->
+					<!--			<cells>-->
+					<!--				<Input id="userName" value="{ProductID}"/>-->
+					<!--			</cells>-->
+					<!--			<cells>-->
+					<!--				<Input id="FirstName" value="{Category}"/>-->
+					<!--			</cells>-->
+					<!--			<cells>-->
+					<!--				<Input id="lastNameInput" value="{Name}"/>-->
+					<!--			</cells>-->
+					<!--			<cells>-->
+					<!--				<Input id="sup" value="{SupplierName}"/>-->
+					<!--			</cells>-->
+					<!--			<cells>-->
+					<!--				<Input id="Agess" value="{WeightMeasure}"/>-->
+					<!--			</cells>-->
+					<!--		</ColumnListItem>-->
+					<!--	</items>-->
+					<!--</Table>-->
+					<!--	<smartTable:customToolbar>-->
+					<!--		<OverflowToolbar design="Transparent">-->
+					<!--			<ToolbarSpacer/>-->
+					<!--			<OverflowToolbarButton icon="sap-icon://arrow-right" tooltip="SmartForm Navigation" press="onSmartFormPress"/>-->
+					<!--			<OverflowToolbarButton icon="sap-icon://sort" text="Sort" press="onSort"/>-->
+					<!--			<OverflowToolbarButton icon="sap-icon://filter" text="Filter" press="onFilter"/>-->
+					<!--			<OverflowToolbarButton icon="sap-icon://group-2" text="Group" press="onGroup"/>-->
+					<!--			<OverflowToolbarButton icon="sap-icon://action-settings" text="Columns" press="onColumns"/>-->
+					<!--		</OverflowToolbar>-->
+					<!--	</smartTable:customToolbar>-->
+					<!--	<Table id="innerUi5Table" growing="true" >-->
+					<!--		<ColumnListItem highlight="{path:'WeightMeasure', formatter:'.formatRowHighlight'}" press="onSelectionChangeChange"/>-->
+					<!--	</Table>-->
+					<!--	</smartTable:SmartTable>-->
+					<!--<Table id="idProductsTable"  >-->
+					<!--	<columns>-->
+					<!--		<Column hAlign="Begin">-->
+					<!--			<Text text="ExtraColumn"/>-->
+					<!--		</Column>-->
+					<!--	</columns>-->
+					<!--	<items>-->
+					<!--		<ColumnListItem type="Active" press="check">-->
+					<!--			<cells>-->
+					<!--				<Text text="{SupplierName}"/>-->
+					<!--			</cells>-->
+					<!--		</ColumnListItem>-->
+					<!--	</items>-->
+					<!--</Table>-->
+					<!--<smartList:SmartList id="ItemsST" entitySet="ProductSet" header="Customers List" showRowCount="true" showFullScreenButton="true"-->
+					<!--	enableAutoBinding="true" selectFields="ProductID,Category,Name,SupplierName,Description">-->
+					<!--	<smartList:listItemTemplate>-->
+					<!--		<StandardListItem title="{ProductID}" info="{Name}" description="{Description}" press="onSelectionChangeChange"/>-->
+					<!--	</smartList:listItemTemplate>-->
+					<!--</smartList:SmartList>-->
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
